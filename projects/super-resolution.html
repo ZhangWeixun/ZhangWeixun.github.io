@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4K Super-Resolution & VLM-Based Video Restoration — Weixun Zhang</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Weixun Zhang</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects" class="active">Projects</a></li>
+        <li><a href="../life.html">Life</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="project-header">
+    <div class="container">
+      <h1>4K Super-Resolution & VLM-Based Video Restoration</h1>
+      <p class="project-meta">Alibaba Digital Media & Entertainment Group (Youku) | 2020 – Present</p>
+    </div>
+  </section>
+
+  <!-- Project Content -->
+  <section class="project-content">
+    <div class="container">
+
+      <h2>Overview</h2>
+      <p>Led Youku's 4K super-resolution and video restoration initiative, supporting large-scale deployment across premium video enhancement services and restoration scenarios. Developed a VLM-based framework by adapting Wan T2V/I2V base models with LoRA fine-tuning for production-scale video restoration.</p>
+
+      <h2>Technical Highlights</h2>
+      <ul>
+        <li>Developed a VLM-based video super-resolution and restoration framework by adapting Wan T2V/I2V base models with LoRA fine-tuning, including a single-step diffusion tailored for SR and restoration scenarios.</li>
+        <li>Built a LoRA training framework with PyTorch Accelerate for multi-GPU fine-tuning and experimentation, enabling efficient adaptation of large-scale generative visual models.</li>
+        <li>Introduced the Wan-Animate method with same-identity reference-based face replacement to address identity drift in face restoration and facial structure distortion under severe degradation.</li>
+        <li>Built hybrid degradation datasets by analyzing quality loss across shooting, post-production, compression, transcoding, and playback pipelines.</li>
+        <li>Productionized the VLM-based restoration service, integrating task-specific repair modules, lightweight models, and traditional image processing.</li>
+      </ul>
+
+      <h2>Effect Comparison</h2>
+      <p>Drag the slider to compare the before (degraded) and after (restored) results:</p>
+
+      <div class="comparison-container">
+        <div class="comparison-slider">
+          <span class="placeholder-text">Before / After comparison<br>— Video frames coming soon —</span>
+          <!-- When images are ready, uncomment below:
+          <img class="before-img" src="../assets/images/projects/sr-before-1.jpg" alt="Before restoration">
+          <img class="after-img" src="../assets/images/projects/sr-after-1.jpg" alt="After restoration">
+          <div class="slider-handle"></div>
+          -->
+        </div>
+        <div class="comparison-label">
+          <span>Before (Degraded)</span>
+          <span>After (Restored 4K)</span>
+        </div>
+      </div>
+
+      <div class="comparison-container">
+        <div class="comparison-slider">
+          <span class="placeholder-text">Face restoration comparison<br>— Video frames coming soon —</span>
+        </div>
+        <div class="comparison-label">
+          <span>Before (Face Degradation)</span>
+          <span>After (Face Restored)</span>
+        </div>
+      </div>
+
+      <h2>Key Technologies</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">Wan T2V/I2V</span>
+        <span class="skill-tag">Wan-Animate</span>
+        <span class="skill-tag">LoRA / PEFT</span>
+        <span class="skill-tag">Single-Step Diffusion</span>
+        <span class="skill-tag">PyTorch Accelerate</span>
+        <span class="skill-tag">Multi-GPU Training</span>
+        <span class="skill-tag">Degradation Modeling</span>
+        <span class="skill-tag">Face Restoration</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Weixun Zhang. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
