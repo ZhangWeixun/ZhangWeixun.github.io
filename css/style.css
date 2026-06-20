@@ -587,10 +587,6 @@ footer {
   .hero { padding: var(--spacing-lg) 0 var(--spacing-md); }
   h1 { font-size: 1.8rem; }
 
-  .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
   .hobby-grid {
     grid-template-columns: 1fr 1fr;
   }
