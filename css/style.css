@@ -482,19 +482,28 @@ footer {
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--spacing-sm);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
 }
 
-.photo-placeholder {
-  aspect-ratio: 4 / 3;
-  background: var(--color-placeholder);
+.photo-item {
   border: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-item .photo-caption {
+  padding: var(--spacing-xs) var(--spacing-sm);
   font-size: 0.85rem;
   color: var(--color-text-secondary);
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
 }
 
 .hobby-grid {

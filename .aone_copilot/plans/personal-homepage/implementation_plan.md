@@ -1,5 +1,5 @@
 ### personal-homepage ###
-基于简历内容，为 weixunzhang.github.io 创建一个简约学术风的英文个人主页，包含个人介绍、项目展示（含独立详情页和效果对比区域）以及个人生活页面。
+基于简历内容，为 zhangweixun.github.io 创建一个简约学术风的英文个人主页，包含个人介绍、项目展示（含独立详情页和效果对比区域）以及个人生活页面。
 
 # 创建学术风格个人主页
 
@@ -25,7 +25,7 @@
 
 ### 全局样式与布局
 
-#### [NEW] [style.css](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/css/style.css)
+#### [NEW] [style.css](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/css/style.css)
 
 - 黑白为主的学术简约风格
 - 响应式设计，支持桌面和移动端
@@ -38,7 +38,7 @@
 
 ### 首页
 
-#### [NEW] [index.html](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/index.html)
+#### [NEW] [index.html](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/index.html)
 
 包含以下模块：
 - **导航栏**：Home | Projects | Life
@@ -54,7 +54,7 @@
 
 ### 项目详情页
 
-#### [NEW] [super-resolution.html](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/projects/super-resolution.html)
+#### [NEW] [super-resolution.html](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/projects/super-resolution.html)
 
 4K Super-Resolution & VLM-Based Video Restoration 项目页面：
 - 项目概述
@@ -62,14 +62,14 @@
 - 效果对比展示区域（滑块对比组件，暂用 placeholder）
 - 技术架构简图区域（预留）
 
-#### [NEW] [narrowband-hd.html](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/projects/narrowband-hd.html)
+#### [NEW] [narrowband-hd.html](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/projects/narrowband-hd.html)
 
 Narrowband HD Enhancement 项目页面：
 - 项目概述
 - 技术亮点（guided-filter、fixed-point quantization、ROI-aware 等）
 - 效果对比展示区域（滑块对比组件，暂用 placeholder）
 
-#### [NEW] [color-grading-hdr.html](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/projects/color-grading-hdr.html)
+#### [NEW] [color-grading-hdr.html](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/projects/color-grading-hdr.html)
 
 Color Grading & HDR Remastering 项目页面：
 - 项目概述
@@ -81,7 +81,7 @@ Color Grading & HDR Remastering 项目页面：
 
 ### 个人生活页面
 
-#### [NEW] [life.html](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/life.html)
+#### [NEW] [life.html](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/life.html)
 
 - 个人照片区域（grid 布局，暂用 placeholder）
 - 兴趣爱好介绍：Half-marathon、Volleyball、Sketching、Hiking
@@ -91,7 +91,7 @@ Color Grading & HDR Remastering 项目页面：
 
 ### 交互脚本
 
-#### [NEW] [main.js](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/js/main.js)
+#### [NEW] [main.js](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/js/main.js)
 
 - 图片/视频 Before-After 滑块对比组件
 - 移动端导航菜单交互
@@ -112,7 +112,7 @@ Color Grading & HDR Remastering 项目页面：
 
 ### README 更新
 
-#### [MODIFY] [README.md](file:///Users/zhangweixun/张维洵/Immigration/weixunzhang.github.io/README.md)
+#### [MODIFY] [README.md](file:///Users/zhangweixun/张维洵/Immigration/zhangweixun.github.io/README.md)
 
 更新为网站说明文档，包含目录结构和维护指南。
 

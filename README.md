@@ -1,10 +1,10 @@
-# weixunzhang.github.io
+# zhangweixun.github.io
 
 Personal academic portfolio website for Weixun Zhang — Senior Machine Learning Engineer specializing in Computer Vision, Video Restoration, Super-Resolution, and HDR Imaging.
 
 ## Live Site
 
-[https://weixunzhang.github.io](https://weixunzhang.github.io)
+[https://zhangweixun.github.io](https://zhangweixun.github.io)
 
 ## Structure
 
