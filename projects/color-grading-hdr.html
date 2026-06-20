@@ -31,12 +31,249 @@
     </div>
   </section>
 
-  <!-- Project Content -->
+  <!-- Part 1: Aesthetic Color Grading -->
   <section class="project-content">
     <div class="container">
 
-      <h2>Overview</h2>
-      <p>Led R&D and large-scale deployment of SDR aesthetic color grading and HDR remastering technologies. Designed a cloud–device collaborative color grading architecture balancing HDR quality, device constraints, and bandwidth efficiency.</p>
+      <h2>Part 1 — Aesthetic Color Grading</h2>
+      <p>Built an automated SDR aesthetic color grading system from scratch, modeling professional colorists' workflow to deliver cinematic-quality results at production scale — replacing costly manual grading with an efficient model-driven pipeline.</p>
+
+      <h2>Technical Highlights</h2>
+      <ul>
+        <li><strong>Dark Region Balancing:</strong> Extracted dark region masks to obtain per-channel RGB components, then balanced the three channels to eliminate color cast while enhancing shadow detail and depth — resulting in cleaner, more transparent images.</li>
+        <li><strong>Skin Tone Correction:</strong> Built an adaptive skin tone correction model in HSV color space — constructed an empirical skin tone gamut, analyzed facial region centroids, and adaptively adjusted color mapping to ensure natural and aesthetically pleasing skin tone results.</li>
+        <li><strong>Temporal Consistency:</strong> Introduced shot-level color consistency control to stabilize dark region and skin tone adjustments within the same shot, plus scene similarity estimation with inter-shot compensation to unify the grading effect across adjacent similar scenes, preventing flickering and visual inconsistency.</li>
+      </ul>
+
+      <h2>Effect Comparison</h2>
+      <p>Drag the slider to compare before and after aesthetic color grading:</p>
+
+      <div class="comparison-carousel">
+        <div class="comparison-container active">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/1-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/1-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/2-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/2-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/3-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/3-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/4-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/4-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/5-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/5-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/6-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/6-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/7-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/7-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/8-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/8-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/9-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/9-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/10-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/10-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/11-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/11-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/12-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/12-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/13-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/13-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/14-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/14-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/15-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/15-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/16-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/16-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/17-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/17-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <img class="before-img" src="imgs/aesthetic_color_grading/18-src.jpg" alt="Before grading">
+            <img class="after-img" src="imgs/aesthetic_color_grading/18-toned.jpg" alt="After grading">
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>Before (Flat / Ungraded)</span>
+            <span>After (Aesthetically Graded)</span>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-prev">← Prev</button>
+          <span class="carousel-indicator">1 / 18</span>
+          <button class="carousel-btn carousel-next">Next →</button>
+        </div>
+      </div>
+
+      <h2>Key Technologies</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">Dark Region Balancing</span>
+        <span class="skill-tag">Skin Tone Correction</span>
+        <span class="skill-tag">Temporal Smoothing</span>
+        <span class="skill-tag">Aesthetic Color Grading</span>
+        <span class="skill-tag">Color Science</span>
+        <span class="skill-tag">Shot-Level Processing</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Part 2: HDR Remastering -->
+  <section class="project-content">
+    <div class="container">
+
+      <h2>Part 2 — HDR Remastering</h2>
+      <p>Led R&D and large-scale deployment of HDR remastering, covering end-to-end support for HDR10, HLG, HDR Vivid, and Dolby Vision. Designed a cloud–device collaborative architecture to balance HDR quality, device constraints, and bandwidth efficiency.</p>
 
       <!-- Stats -->
       <div class="stats-grid">
@@ -60,34 +297,129 @@
 
       <h2>Technical Highlights</h2>
       <ul>
-        <li>Built an automated aesthetic color grading system modeling contrast, color richness, and color correction using image processing and cinematic grading principles.</li>
-        <li>Introduced shot-level two-pass analysis, temporal smoothing, and program-level outlier protection to preserve both visual consistency and artistic intent.</li>
         <li>Built end-to-end support for HDR10, HLG, HDR Vivid, and Dolby Vision formats.</li>
         <li>Developed an AI-assisted HDR remastering workflow integrated with professional grading tools.</li>
+        <li>Designed a cloud–device collaborative architecture to balance HDR quality, device constraints, and bandwidth efficiency.</li>
         <li>Designed screen calibration and device certification systems to ensure consistent color and luminance across mobile, tablet, and TV devices.</li>
         <li>Reduced cost to ~30% of fully manual workflows while improving production efficiency by ~3×.</li>
       </ul>
 
       <h2>Effect Comparison</h2>
-      <p>Drag the slider to compare SDR original and HDR remastered results:</p>
+      <p>Drag the slider to compare SDR original and HDR remastered results. Press play to watch both videos in sync:</p>
 
-      <div class="comparison-container">
-        <div class="comparison-slider">
-          <span class="placeholder-text">SDR vs HDR comparison<br>— Video frames coming soon —</span>
+      <div class="comparison-carousel">
+        <div class="comparison-container active">
+          <div class="comparison-slider">
+            <video class="before-video" src="imgs/hdr/Moana-sdr.mp4" muted playsinline loop></video>
+            <video class="after-video" src="imgs/hdr/Moana-hdr.mp4" muted playsinline loop></video>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>SDR (Original)</span>
+            <span>HDR (Remastered)</span>
+          </div>
+          <div class="video-playback-controls">
+            <button class="video-play-btn" title="Play / Pause">
+              <span class="play-icon">▶</span>
+              <span class="pause-icon" style="display:none;">⏸</span>
+            </button>
+            <div class="video-progress-bar">
+              <div class="video-progress-track">
+                <div class="video-progress-filled"></div>
+              </div>
+              <div class="video-progress-time">
+                <span class="video-current-time">0:00</span>
+                <span class="video-duration">0:00</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="comparison-label">
-          <span>SDR (Original)</span>
-          <span>HDR (Remastered)</span>
-        </div>
-      </div>
 
-      <div class="comparison-container">
-        <div class="comparison-slider">
-          <span class="placeholder-text">Color grading comparison<br>— Video frames coming soon —</span>
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <video class="before-video" src="imgs/hdr/the-wandering-earth-sdr.mp4" muted playsinline loop></video>
+            <video class="after-video" src="imgs/hdr/the-wandering-earth-hdr.mp4" muted playsinline loop></video>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>SDR (Original)</span>
+            <span>HDR (Remastered)</span>
+          </div>
+          <div class="video-playback-controls">
+            <button class="video-play-btn" title="Play / Pause">
+              <span class="play-icon">▶</span>
+              <span class="pause-icon" style="display:none;">⏸</span>
+            </button>
+            <div class="video-progress-bar">
+              <div class="video-progress-track">
+                <div class="video-progress-filled"></div>
+              </div>
+              <div class="video-progress-time">
+                <span class="video-current-time">0:00</span>
+                <span class="video-duration">0:00</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="comparison-label">
-          <span>Before (Flat Colors)</span>
-          <span>After (Graded)</span>
+
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <video class="before-video" src="imgs/hdr/nezha2-sdr.mp4" muted playsinline loop></video>
+            <video class="after-video" src="imgs/hdr/nezha2-hdr.mp4" muted playsinline loop></video>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>SDR (Original)</span>
+            <span>HDR (Remastered)</span>
+          </div>
+          <div class="video-playback-controls">
+            <button class="video-play-btn" title="Play / Pause">
+              <span class="play-icon">▶</span>
+              <span class="pause-icon" style="display:none;">⏸</span>
+            </button>
+            <div class="video-progress-bar">
+              <div class="video-progress-track">
+                <div class="video-progress-filled"></div>
+              </div>
+              <div class="video-progress-time">
+                <span class="video-current-time">0:00</span>
+                <span class="video-duration">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-container">
+          <div class="comparison-slider">
+            <video class="before-video" src="imgs/hdr/creation_of_the_gods-sdr.mp4" muted playsinline loop></video>
+            <video class="after-video" src="imgs/hdr/creation_of_the_gods-hdr.mp4" muted playsinline loop></video>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="comparison-label">
+            <span>SDR (Original)</span>
+            <span>HDR (Remastered)</span>
+          </div>
+          <div class="video-playback-controls">
+            <button class="video-play-btn" title="Play / Pause">
+              <span class="play-icon">▶</span>
+              <span class="pause-icon" style="display:none;">⏸</span>
+            </button>
+            <div class="video-progress-bar">
+              <div class="video-progress-track">
+                <div class="video-progress-filled"></div>
+              </div>
+              <div class="video-progress-time">
+                <span class="video-current-time">0:00</span>
+                <span class="video-duration">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-prev">← Prev</button>
+          <span class="carousel-indicator">1 / 4</span>
+          <button class="carousel-btn carousel-next">Next →</button>
         </div>
       </div>
 
@@ -102,13 +434,10 @@
       <h2>Key Technologies</h2>
       <div class="skills-grid" style="margin-top: var(--spacing-sm);">
         <span class="skill-tag">Cloud-Device Collaboration</span>
-        <span class="skill-tag">Two-Pass Analysis</span>
-        <span class="skill-tag">Temporal Smoothing</span>
-        <span class="skill-tag">Aesthetic Color Grading</span>
+        <span class="skill-tag">AI-Assisted Workflow</span>
         <span class="skill-tag">Screen Calibration</span>
         <span class="skill-tag">Device Certification</span>
         <span class="skill-tag">Color Science</span>
-        <span class="skill-tag">AI-Assisted Workflow</span>
       </div>
 
     </div>
