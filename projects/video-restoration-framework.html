@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大模型视频修复 — 技术框架总览</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/framework.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Weixun Zhang</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects" class="active">Projects</a></li>
+        <li><a href="../life.html">Life</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="project-header">
+    <div class="container">
+      <h1>大模型视频修复 — 技术框架总览</h1>
+      <p class="project-meta">VLM-Based Video Restoration: Architecture, Algorithms & Production</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="project-content">
+    <div class="container">
+      <h2>项目概述</h2>
+      <p>基于 Wan T2V/I2V 大模型，构建了一套覆盖 <strong>基模研发、时序稳定性优化、人脸修复、推理加速、生产工程</strong> 的完整视频修复技术体系。已交付上线 10+ 部经典内容（四大名著、大明王朝、仙剑奇侠传等）。</p>
+
+      <!-- Key Stats -->
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">经典剧集上线</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">83%</div>
+          <div class="stat-label">推理提速 (sparse-attn)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">人脸修复剧集</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">~10h</div>
+          <div class="stat-label">单卡/集 (H20)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Framework Tree Map -->
+  <section class="project-content">
+    <div class="container">
+      <h2>技术框架全景</h2>
+      <p>点击各模块卡片可跳转至对应的详细章节。</p>
+
+      <div class="framework-tree">
+        <!-- Root -->
+        <div class="tree-root">
+          <div class="tree-node tree-node--root">大模型视频修复</div>
+        </div>
+
+        <!-- Level 1 branches -->
+        <div class="tree-level-1">
+
+          <!-- Branch 1: 老片修复 -->
+          <div class="tree-branch tree-branch--primary">
+            <div class="tree-node tree-node--l1">
+              <span class="node-tag node-tag--core">核心主线</span>
+              一、老片修复
+            </div>
+
+            <div class="tree-children">
+
+              <!-- 1. 基模研发 -->
+              <a href="#section-base-model" class="tree-node tree-node--l2">
+                <span class="node-number">1</span>
+                基模研发
+                <span class="node-source">文档一 + 文档三</span>
+              </a>
+
+              <!-- 2. 时序稳定性 -->
+              <a href="#section-temporal" class="tree-node tree-node--l2">
+                <span class="node-number">2</span>
+                时序稳定性优化
+                <span class="node-source">文档三 KR1+KR2</span>
+              </a>
+
+              <!-- 3. 人脸修复 -->
+              <a href="#section-face" class="tree-node tree-node--l2">
+                <span class="node-number">3</span>
+                人脸修复
+                <span class="node-source">文档二 KR1+KR2</span>
+              </a>
+
+              <!-- 4. 推理加速 -->
+              <a href="#section-acceleration" class="tree-node tree-node--l2">
+                <span class="node-number">4</span>
+                推理加速
+                <span class="node-source">文档一</span>
+              </a>
+
+              <!-- 5. 生产工程 -->
+              <a href="#section-engineering" class="tree-node tree-node--l2">
+                <span class="node-number">5</span>
+                生产工程
+                <span class="node-source">文档一+二+三</span>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DETAIL SECTIONS ==================== -->
+
+  <!-- Section 1: 基模研发 -->
+  <section id="section-base-model" class="project-content detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2>基模研发</h2>
+      </div>
+
+      <!-- 1.1 -->
+      <div class="subsection">
+        <h3>1.1 基模架构</h3>
+        <p class="subsection-subtitle">基于 Wan(t2v-model-2.1/2.2) 的 LoRA-based 单步 + 残差预测视频超分架构</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>构建并验证了基于 Wan T2V 基模的 LoRA-based 单步推理 + 残差预测超分架构，作为整套老片修复的基础模型。</p>
+          <div class="detail-card__placeholder" data-placeholder="架构图">
+            <!-- 待补充：基模架构图 -->
+            <span>架构图 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2 -->
+      <div class="subsection">
+        <h3>1.2 T2V → I2V 基模迭代</h3>
+        <p class="subsection-subtitle">引入参考帧引导训练策略，确定 I2V 为更优基模选择</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>I2V 基模相比 T2V 基模，在高频细节生成与时序一致性上均表现更优。通过引入参考帧引导的训练策略，有效抑制时序抖动。</p>
+          <div class="detail-card__placeholder" data-placeholder="对比效果">
+            <span>T2V vs I2V 效果对比 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.3 -->
+      <div class="subsection">
+        <h3>1.3 Pattern 问题探索</h3>
+        <p class="subsection-subtitle">从降质策略、Loss 维度探索 pattern 问题的优化方案</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>从降质策略（去噪/JPEG 等）和 Loss（freq-loss、tv-lpips-loss）两个维度进行系统实验。</p>
+          <div class="detail-card__label">结论</div>
+          <p>1) 当前模型生成力越强，pattern 问题越明显；调整降质/添加高频约束在降低 pattern 的同时也降低清晰度。2) DiT 架构有此问题，UNet 架构没有。目前尚无较好的解决方案。</p>
+          <div class="detail-card__placeholder" data-placeholder="频谱分析">
+            <span>Pattern 频谱分析 & Loss 消融实验 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: 时序稳定性优化 -->
+  <section id="section-temporal" class="project-content detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2>时序稳定性优化</h2>
+      </div>
+
+      <!-- 2.1 -->
+      <div class="subsection">
+        <h3>2.1 DiT 层面：参考帧引导训练策略</h3>
+        <p class="subsection-subtitle">系统探索参考帧选择与插入策略，兼顾时序稳定性与高频重建</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>系统实验了 GT / LR / 模型修复帧作为参考帧的效果，以及首帧 / 固定间隔 / 首尾帧等插入策略。</p>
+
+          <table class="detail-table">
+            <thead>
+              <tr><th>参考帧</th><th>时序稳定性</th><th>高频重建能力</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GT（真值帧）</td><td>最优</td><td>最弱，随时序退化</td></tr>
+              <tr><td>模型修复帧</td><td>强</td><td>适中</td></tr>
+              <tr><td>LR（低质帧）</td><td>近似 T2V</td><td>最优</td></tr>
+              <tr><td>无参考帧</td><td>近似 T2V</td><td>略弱于 LR</td></tr>
+            </tbody>
+          </table>
+
+          <div class="detail-card__label">结论</div>
+          <p><strong>最优方案：以模型修复帧为参考 + 首尾帧插入</strong>，兼顾时序稳定性与高频重建能力。</p>
+          <div class="detail-card__placeholder" data-placeholder="效果对比">
+            <span>改进前后效果对比 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 -->
+      <div class="subsection">
+        <h3>2.2 VAE 层面：低时序压缩 WanVAE</h3>
+        <p class="subsection-subtitle">降低 VAE 时序维度压缩，缓解高频损失与闪烁问题</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>训练低时序压缩 WanVAE（时序压缩从 4×8×8 降低到 <strong>1×8×8</strong>），显著降低大运动/遮挡场景下的纹理扭曲与色调偏移。训练成本低，且能兼容现有 DiT。</p>
+          <div class="detail-card__placeholder" data-placeholder="VAE 对比">
+            <span>WanVAE 4×8×8 vs 1×8×8 对比 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: 人脸修复 -->
+  <section id="section-face" class="project-content detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2>人脸修复</h2>
+      </div>
+
+      <!-- 3.1 -->
+      <div class="subsection">
+        <h3>3.1 大脸修复 — bigFace 模型</h3>
+        <p class="subsection-subtitle">解决低质老片全局修复后人脸"油腻、纹理假"问题</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>基于 Wan2.2-t2v-14B + LoRA 训练。采用高清人脸纹理数据，调弱模拟降质程度，加入 dino-dnet GAN loss。</p>
+          <div class="detail-card__label">应用结果</div>
+          <p>应用于《三国演义》《水浒传》《潜伏》《大明王朝》等低质老片的人脸修复生产。</p>
+          <div class="detail-card__placeholder" data-placeholder="效果对比">
+            <span>源输入 vs 老片模型 vs bigFace 模型 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 -->
+      <div class="subsection">
+        <h3>3.2 中高质介质修复 — mqe 模型</h3>
+        <p class="subsection-subtitle">解决中高质量介质修复后整体细节涂抹、油腻感问题</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>引入额外小模型 amq（模拟"油腻、过锐"效果）作为降质手段，与原降质策略结合训练。</p>
+          <div class="detail-card__label">应用结果</div>
+          <p>应用于《我的兄弟叫顺溜》《悬崖》等中高质量剧集，无需再做大脸修复。</p>
+          <div class="detail-card__placeholder" data-placeholder="效果对比">
+            <span>源输入 vs 老片模型 vs mqe 模型 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.3 -->
+      <div class="subsection">
+        <h3>3.3 多模型混合 — mix-lora</h3>
+        <p class="subsection-subtitle">分场景自适应：为不同场景动态分配模型权重</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>开发前置生成权重分析模块，为不同场景（细节生成力 vs 去噪修复力）动态赋予模型权重，下游混合 LoRA 参数处理。</p>
+          <div class="detail-card__label">应用结果</div>
+          <p>已应用于《仙剑奇侠传一》《重返狼群》等剧集，作为后续生产的标配模块。</p>
+          <div class="detail-card__placeholder" data-placeholder="流程图">
+            <span>mix-lora 方案流程图 & 权重分析示例 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.4 -->
+      <div class="subsection">
+        <h3>3.4 小脸修复</h3>
+        <p class="subsection-subtitle">解决全局修复后小脸区域扭曲闪烁、鬼脸问题</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>用亚洲人脸数据 + 调强降质训练小脸模型。推理基于时序人脸检测 & 跟踪，采用 ROI + upscale 处理。</p>
+          <div class="detail-card__label">应用结果</div>
+          <p>用于四大名著、新白娘子传奇、寻秦记等的小脸修复生产。</p>
+          <div class="detail-card__placeholder" data-placeholder="效果对比">
+            <span>全局修复 vs 小脸修复后 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.5 -->
+      <div class="subsection">
+        <h3>3.5 线下片段级修复</h3>
+        <p class="subsection-subtitle">兜底方案：解决漏检导致的鬼脸、ID 严重偏移等问题</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>两种策略并行：</p>
+          <ul>
+            <li><strong>保守策略</strong>：upscale 进模型 + blur 后处理</li>
+            <li><strong>换脸策略</strong>：Wan Animate — replacement 模式，基于参考图实现同 ID 人脸替换</li>
+          </ul>
+          <div class="detail-card__label">应用结果</div>
+          <p>两种方案均已投入线下片段修复流程，覆盖已生产的 9 部剧集。</p>
+          <div class="detail-card__placeholder" data-placeholder="效果对比">
+            <span>原生产效果 vs 线下修复后 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: 推理加速 -->
+  <section id="section-acceleration" class="project-content detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2>推理加速</h2>
+      </div>
+
+      <div class="subsection">
+        <h3>4.1 Sparse Attention</h3>
+        <p class="subsection-subtitle">基于 flex-attention 实现稀疏注意力，大幅降低推理耗时</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>参考 fast-video-generation 工作，基于 flex-attention 实现稀疏注意力机制。理论复杂度从 O(n²) 降至 O(n·k²)。</p>
+          <div class="detail-card__label">结果</div>
+          <p>H20 GPU 上实现 <strong>83% 的提速</strong>（45×1440×1152, 2.8s/frame → 1.5s/frame），分辨率越大收益越大。同时在效果上也有收益：训练和推理一致，解决了 block 问题和白点问题。</p>
+          <div class="detail-card__placeholder" data-placeholder="速度对比">
+            <span>Sparse Attention 速度与效果对比 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>4.2 其他加速探索</h3>
+        <div class="detail-card">
+          <div class="detail-card__label">探索方向</div>
+          <ul>
+            <li><strong>torch.compile</strong>：PyTorch 编译优化</li>
+            <li><strong>TensorRT (TRT)</strong>：推理引擎加速</li>
+            <li><strong>模型 & 数据加载异步</strong>：IO 与计算并行</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: 生产工程 -->
+  <section id="section-engineering" class="project-content detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2>生产工程</h2>
+      </div>
+
+      <!-- 5.1 -->
+      <div class="subsection">
+        <h3>5.1 自动化流水线</h3>
+        <p class="subsection-subtitle">任务队列自动拉取 → 上下游结果自动衔接</p>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>机器自动从任务队列拉取任务，自动从上游拉取结果写入下游队列。在 vela-h20 上搭建部署了修复服务。各模块稳定性优化（pts 问题、调色问题等）。</p>
+          <div class="detail-card__placeholder" data-placeholder="流程图">
+            <span>生产流程全景图 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.2 -->
+      <div class="subsection">
+        <h3>5.2 多 LoRA 权重融合 & 分 Tile 推理</h3>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <ul>
+            <li><strong>多 LoRA 融合</strong>：基于输入场景动态融合多个 LoRA 权重，融合与加载控制在 ~2 秒</li>
+            <li><strong>分 Tile 推理</strong>：突破显存限制支持高分辨率输入，融合策略保持视觉连贯性无拼接伪影</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5.3 -->
+      <div class="subsection">
+        <h3>5.3 人脸修复工程效率优化</h3>
+        <div class="detail-card">
+          <div class="detail-card__label">优化维度</div>
+          <ul>
+            <li><strong>CPU/GPU 利用率</strong>：多线程、多进程</li>
+            <li><strong>并发层面</strong>：推理显存优化</li>
+            <li><strong>任务层面</strong>：生产调度优化</li>
+          </ul>
+          <div class="detail-card__label">结果</div>
+          <p>H20-140GB-vela 集群：1080P 电视剧单卡单进程 ~1 集/12h，<strong>单卡双进程 ~1 集/10h</strong>，已用于 12 部剧集生产。</p>
+        </div>
+      </div>
+
+      <!-- 5.4 -->
+      <div class="subsection">
+        <h3>5.4 线下修复工具 & 工作流</h3>
+        <div class="detail-card">
+          <div class="detail-card__label">方案说明</div>
+          <p>开发了完整的线下修复工作流工具，包含方案提交、结果下载、对比筛选等功能模块。</p>
+          <div class="detail-card__placeholder" data-placeholder="工具截图">
+            <span>线下修复工具截图 — 待补充</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Back to top -->
+  <section class="project-content">
+    <div class="container" style="text-align:center; padding: 2rem 0;">
+      <a href="#" style="font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em;">↑ 返回顶部</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Weixun Zhang. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
