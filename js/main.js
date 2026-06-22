@@ -103,6 +103,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentIndex = 0;
 
+    // Add drag hint on first active slider
+    var dragHint = null;
+    var firstActiveSlider = carousel.querySelector('.comparison-container.active .comparison-slider');
+    if (firstActiveSlider) {
+      dragHint = document.createElement('div');
+      dragHint.className = 'slider-drag-hint';
+      dragHint.innerHTML = '↔ Drag to compare';
+      firstActiveSlider.appendChild(dragHint);
+
+      function hideDragHint() {
+        if (dragHint && dragHint.parentNode) {
+          dragHint.style.opacity = '0';
+          setTimeout(function () { if (dragHint.parentNode) dragHint.parentNode.removeChild(dragHint); }, 500);
+          dragHint = null;
+        }
+      }
+
+      firstActiveSlider.addEventListener('mousedown', function () { hideDragHint(); });
+      firstActiveSlider.addEventListener('touchstart', function () { hideDragHint(); });
+    }
+
+    // Add next hint below carousel controls
+    var nextHint = null;
+    if (containers.length > 1) {
+      nextHint = document.createElement('div');
+      nextHint.className = 'carousel-next-hint';
+      nextHint.innerHTML = '👆 Click Next → to see more comparisons';
+      carousel.appendChild(nextHint);
+
+      function hideNextHint() {
+        if (nextHint && nextHint.parentNode) {
+          nextHint.style.opacity = '0';
+          setTimeout(function () { if (nextHint.parentNode) nextHint.parentNode.removeChild(nextHint); }, 500);
+          nextHint = null;
+        }
+      }
+
+      nextBtn.addEventListener('click', function () { hideNextHint(); });
+    }
+
     function showSlide(index) {
       containers.forEach(function (c, i) {
         c.classList.toggle('active', i === index);
