@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDR Agent: AI Agent for Expert-Guided SDR-to-HDR Optimization — Weixun Zhang</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Weixun Zhang</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects" class="active">Projects</a></li>
+        <li><a href="../life.html">Life</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="project-header">
+    <div class="container">
+      <h1>HDR Agent: AI Agent for Expert-Guided SDR-to-HDR Optimization</h1>
+      <p class="project-meta">Alibaba Digital Media & Entertainment Group (Youku) | AI Agent / HDR Optimization | 2026</p>
+    </div>
+  </section>
+
+  <!-- Project Content -->
+  <section class="project-content">
+    <div class="container">
+
+      <h2>Overview</h2>
+      <p>Designed and built a domain-specific AI agent for SDR-to-HDR remastering. The agent converts expert colorist feedback into structured tuning knowledge, analyzes SDR / Model-generated HDR / manually graded HDR clips, and recommends parameter-adjustment strategies under rule-based governance.</p>
+      <p>The system connects expert correction records, video feature extraction, diagnostic tools, subjective evaluation reports, and HDR algorithm knowledge into a closed-loop optimization workflow for production HDR remastering.</p>
+
+      <h2>Agent Workflow</h2>
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <span class="workflow-index">01</span>
+          <h3>Knowledge Intake</h3>
+          <p>Reads expert correction records from DingTalk/MCP knowledge sources and normalizes free-text colorist feedback into reusable problem/action schemas.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-index">02</span>
+          <h3>Media Preparation</h3>
+          <p>Organizes OSS media assets across SDR originals, AI-generated HDR clips, manually graded HDR clips, scene boundaries, face metadata, and CDL exports.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-index">03</span>
+          <h3>Feature Extraction</h3>
+          <p>Runs Python and FFmpeg-based pipelines to extract brightness, contrast, face, color, saturation, gamut, and temporal stability features.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-index">04</span>
+          <h3>Diagnosis</h3>
+          <p>Maps objective signals and expert feedback to HDR issues such as over-bright faces, black-level lift, excessive saturation, gamut shift, or temporal flicker.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-index">05</span>
+          <h3>Parameter Strategy</h3>
+          <p>Recommends adjustment directions for color type, tone control points, HDR white level, SDR highest nit, smoothing, and custom FFmpeg filter parameters.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-index">06</span>
+          <h3>Review & Governance</h3>
+          <p>Uses HTML/JS comparison reports and rule-based checks to keep agent decisions auditable before knowledge is reused downstream.</p>
+        </div>
+      </div>
+
+      <h2>Feature Extraction Pipeline</h2>
+      <p>Built a Python feature pipeline around the SDR / AI HDR / manually graded HDR triplet. Absolute feature modules describe each clip, while perceptual difference signals explain what the expert correction changed.</p>
+
+      <div class="feature-columns">
+        <div class="feature-column">
+          <h3>F-Series Absolute Features</h3>
+          <ul>
+            <li>Global brightness, contrast, HDR peak, and tone-control points.</li>
+            <li>Face detection, face brightness, skin-related statistics, and foreground contrast.</li>
+            <li>SDR alignment, gamut extension, saturation amplification, display characteristics, and scene smoothness.</li>
+          </ul>
+        </div>
+        <div class="feature-column">
+          <h3>D-Series Difference Signals</h3>
+          <ul>
+            <li>Zone brightness across dark, mid, gain, and specular ranges.</li>
+            <li>Black level, color temperature, hue, saturation, skin, contrast, and gamut shifts.</li>
+            <li>Temporal stability signals for detecting flicker and scene-level inconsistency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="formula-block">
+        <strong>Modeling frame:</strong>
+        <span>X = [F(SDR) | F(AI HDR) | F(AI HDR) - F(SDR) | color_type]</span>
+        <span>Y = F(Manual HDR) - F(AI HDR)</span>
+      </div>
+
+      <h2>Human-in-the-Loop Knowledge Workflow</h2>
+      <ul>
+        <li>Developed workflows that transform free-text expert corrections into structured problem/action schemas for downstream learning and evaluation.</li>
+        <li>Linked colorist comments, CDL exports, clip metadata, and feature signals so agent recommendations remain traceable to expert judgement.</li>
+        <li>Built subjective evaluation tooling for ranking HDR variants, aggregating reviewer preference data, and generating HTML analysis reports.</li>
+        <li>Separated experimental diagnostics from production-oriented feature pipelines, allowing targeted tools such as flicker detection to mature independently.</li>
+      </ul>
+
+      <h2>HDR Agent Demo</h2>
+      <p>This demo shows how expert feedback is parsed from DingTalk/MCP sources and converted into structured tuning knowledge.</p>
+
+      <div class="demo-video-panel">
+        <video class="demo-video" controls preload="metadata" playsinline>
+          <source src="imgs/hdr_agent/hdr-agent-show.mp4" type="video/mp4">
+          Your browser does not support embedded video playback.
+        </video>
+      </div>
+
+      <h2>Key Technologies</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">AI Agent Workflow</span>
+        <span class="skill-tag">Python Video Processing</span>
+        <span class="skill-tag">Custom FFmpeg Filters</span>
+        <span class="skill-tag">SDR-to-HDR</span>
+        <span class="skill-tag">Color Science</span>
+        <span class="skill-tag">DingTalk / MCP</span>
+        <span class="skill-tag">OSS Media Assets</span>
+        <span class="skill-tag">Feature Engineering</span>
+        <span class="skill-tag">Subjective Evaluation</span>
+        <span class="skill-tag">HTML / JS Reports</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Weixun Zhang. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

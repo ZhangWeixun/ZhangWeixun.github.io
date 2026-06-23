@@ -620,6 +620,79 @@ footer {
   margin-top: 0.25rem;
 }
 
+/* ===== Project Workflow Blocks ===== */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.workflow-step {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm);
+  background: var(--color-bg);
+}
+
+.workflow-index {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.35rem;
+}
+
+.workflow-step h3,
+.feature-column h3 {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.workflow-step p {
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+.feature-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.feature-column {
+  border-left: 3px solid var(--color-border);
+  padding-left: var(--spacing-sm);
+}
+
+.formula-block {
+  display: grid;
+  gap: 0.35rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  padding: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.formula-block strong {
+  color: var(--color-text);
+}
+
+.demo-video-panel {
+  border: 1px solid var(--color-border);
+  background: #000;
+  margin: var(--spacing-md) 0;
+}
+
+.demo-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   html { font-size: 15px; }
@@ -647,6 +720,11 @@ footer {
 
   .hero { padding: var(--spacing-lg) 0 var(--spacing-md); }
   h1 { font-size: 1.8rem; }
+
+  .workflow-grid,
+  .feature-columns {
+    grid-template-columns: 1fr;
+  }
 
   .hobby-grid {
     grid-template-columns: 1fr 1fr;
