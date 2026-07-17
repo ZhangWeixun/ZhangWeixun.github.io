@@ -26,6 +26,89 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!handle || !beforeEl) return;
 
+    var fullscreenTarget = slider.closest('.comparison-container') || slider;
+    var fullscreenBtn = slider.querySelector('.comparison-fullscreen-btn');
+    var fullscreenHint = slider.querySelector('.comparison-fullscreen-hint');
+    var canFullscreen = fullscreenTarget.requestFullscreen || fullscreenTarget.webkitRequestFullscreen;
+
+    function getFullscreenElement() {
+      return document.fullscreenElement || document.webkitFullscreenElement;
+    }
+
+    function requestSliderFullscreen() {
+      if (fullscreenTarget.requestFullscreen) return fullscreenTarget.requestFullscreen();
+      if (fullscreenTarget.webkitRequestFullscreen) return fullscreenTarget.webkitRequestFullscreen();
+      return Promise.resolve();
+    }
+
+    function exitSliderFullscreen() {
+      if (document.exitFullscreen) return document.exitFullscreen();
+      if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+      return Promise.resolve();
+    }
+
+    function updateFullscreenButton() {
+      if (!fullscreenBtn) return;
+
+      var isFullscreen = getFullscreenElement() === fullscreenTarget;
+      var enterIcon = fullscreenBtn.querySelector('.fullscreen-enter-icon');
+      var exitIcon = fullscreenBtn.querySelector('.fullscreen-exit-icon');
+
+      fullscreenTarget.classList.toggle('comparison-is-fullscreen', isFullscreen);
+      fullscreenBtn.setAttribute('aria-label', isFullscreen ? 'Exit full screen comparison' : 'Open comparison full screen');
+      fullscreenBtn.setAttribute('title', isFullscreen ? 'Exit full screen' : 'Full screen');
+
+      if (enterIcon) enterIcon.style.display = isFullscreen ? 'none' : '';
+      if (exitIcon) exitIcon.style.display = isFullscreen ? '' : 'none';
+    }
+
+    if (canFullscreen) {
+      if (!fullscreenHint) {
+        fullscreenHint = document.createElement('div');
+        fullscreenHint.className = 'comparison-fullscreen-hint';
+        fullscreenHint.textContent = 'Click full screen to inspect details';
+        slider.appendChild(fullscreenHint);
+      }
+
+      if (!fullscreenBtn) {
+        fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'comparison-fullscreen-btn';
+        fullscreenBtn.type = 'button';
+        fullscreenBtn.setAttribute('aria-label', 'Open comparison full screen');
+        fullscreenBtn.setAttribute('title', 'Full screen');
+        fullscreenBtn.innerHTML = '<span class="fullscreen-enter-icon">⛶</span><span class="fullscreen-exit-icon" style="display: none;">×</span>';
+        slider.appendChild(fullscreenBtn);
+      }
+
+      fullscreenBtn.addEventListener('mousedown', function (event) {
+        event.stopPropagation();
+      });
+
+      fullscreenBtn.addEventListener('touchstart', function (event) {
+        event.stopPropagation();
+      });
+
+      fullscreenBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var isFullscreen = getFullscreenElement() === fullscreenTarget;
+        var fullscreenAction = isFullscreen ? exitSliderFullscreen() : requestSliderFullscreen();
+        if (fullscreenHint) fullscreenHint.style.opacity = '0';
+
+        if (fullscreenAction && fullscreenAction.catch) {
+          fullscreenAction.catch(function () {});
+        }
+      });
+
+      document.addEventListener('fullscreenchange', updateFullscreenButton);
+      document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+      updateFullscreenButton();
+    } else {
+      if (fullscreenBtn) fullscreenBtn.style.display = 'none';
+      if (fullscreenHint) fullscreenHint.style.display = 'none';
+    }
+
     let isDragging = false;
 
     function updateClip(position) {
